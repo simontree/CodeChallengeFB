@@ -3,6 +3,7 @@ import './App.css';
 import Landing from './pages/Landing';
 import { Box } from '@mui/system';
 import Question from './pages/Question';
+import FinalPage from './pages/FinalPage';
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
       </Routes>
       <Routes>
         <Route path="/question" element={<Question/>}/>
+      </Routes>
+      <Routes>
+        <Route path="/finalpage" element={<FinalPage/>}/>
       </Routes>
     </Box>
     </BrowserRouter>

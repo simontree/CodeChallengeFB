@@ -3,38 +3,58 @@
         {
             "id" : "1",
             "question" : "What's your budget?",
-            "answers" : {
-                "0-3000\u20ac" : [{"next_question_id" : "2"}],
-                "3000-8000\u20ac" : [{"next_question_id" : "2"}],
-                ">8000\u20ac" : [{"next_question_id" : "2"}]
-            }
+            "answers" : [
+                "0-3000\u20ac",
+                "3000-8000\u20ac",
+                ">8000\u20ac"],
+            "next_question_id" : [
+                "2",
+                "2",
+                "2"
+            ]
         },
         {
             "id" : "2",
             "question" : "How many seats do you want in your van?",
-            "answers" : {
-                "2" : [{"next_question_id" : "3"}],
-                "3" : [{"next_question_id" : "4"}],
-                "5" : [{"next_question_id" : "4"}],
-                "8" : [{"next_question_id" : "4"}]
-            }
+            "answers" : [
+                "2",
+                "3",
+                "5",
+                "8"
+            ],
+            "next_question_id" : 
+            [
+                "3",
+                "4",
+                "4",
+                "4"
+            ]
         },
         {
             "id" : "3",
             "question" : "Is not a small car enough?",
-            "answers" : {
-                "yes, you are right" : [{"next_question_id" : "5"}],
-                "no" : [{"next_question_id" : "4"}]
-            }
+            "answers" : [
+                "yes, you are right",
+                "no"
+            ],
+            "next_question_id" :[
+                "5",
+                "4"
+            ]
         },
         {
             "id" : "4",
             "question" : "What brand should it be?",
-            "answers" : {
-                "Ford" : [{"next_question_id" : "6"}],
-                "Renault" : [{"next_question_id" : "7"}],
-                "VW" : [{"next_question_id" : "8"}]
-            }
+            "answers" : [
+                "Ford",
+                "Renault",
+                "VW"
+            ],
+            "next_question_id" : [
+                "6",
+                "7",
+                "8"
+            ]
         },
         {
             "id" : "5",
@@ -44,27 +64,40 @@
         {
             "id" : "6",
             "question" : "What model would you like?",
-            "answers" : {
-                "Ford Transit 2002" : [{"next_question_id" : ""}],
-                "Ford Transit 2020" : [{"next_question_id" : ""}]
-            }
+            "answers" : [
+                "Ford Transit 2002",
+                "Ford Transit 2020"
+            ],
+            "next_question_id" : [
+                "",
+                ""
+            ]
         },
         {
             "id" : "7",
             "question" : "What model would you like?",
-            "answers" : {
-                "Renault Traffic" : [{"next_question_id" : ""}],
-                "Renault Master" : [{"next_question_id" : ""}]
-            }
+            "answers" : [
+                "Renault Traffic",
+                "Renault Master"
+            ],
+            "next_question_id" : [
+                "",
+                ""
+            ]
         },
         {
             "id" : "8",
             "question" : "What model would you like?",
-            "answers" : {
-                "VW T4" : [{"next_question_id" : ""}],
-                "VW T5" : [{"next_question_id" : ""}],
-                "VW T6" : [{"next_question_id" : ""}]
-            }
+            "answers" : [
+                "VW T4",
+                "VW T5",
+                "VW T6"
+            ],
+            "next_question_id" : [
+                "",
+                "",
+                ""
+            ]
         }
     ]
 }

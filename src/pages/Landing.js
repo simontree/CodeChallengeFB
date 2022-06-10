@@ -12,10 +12,12 @@ const Landing = () => {
 
     return ( 
         <div>
-        <Typography variant="h4" fontWeight="bold">Welcome to the Questionaire</Typography>
-        <Box mt={10}>
-        <Button onClick={handleClick} variant="contained" type="submit" mt={10}>Getting Started</Button>
-        </Box>
+            <Box>
+                <Typography variant="h4" fontWeight="bold">Welcome to the Van Questionaire!<br/><br/> Find out which Van model suits you.</Typography>
+                <Box mt={10}>
+                <Button onClick={handleClick} variant="contained" type="submit" mt={10}>Getting Started</Button>
+                </Box>
+            </Box>
         </div>
      );
 }
