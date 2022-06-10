@@ -2,7 +2,7 @@ import { Typography, Button } from "@mui/material";
 import { Box } from "@mui/system";
 import { useNavigate } from "react-router";
 
-const Landing = () => {
+const LandingPage = () => {
     
     let navigate = useNavigate();
 
@@ -22,4 +22,4 @@ const Landing = () => {
      );
 }
  
-export default Landing;
+export default LandingPage;
