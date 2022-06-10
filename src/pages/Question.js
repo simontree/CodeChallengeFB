@@ -9,26 +9,24 @@ const Question = () => {
     const [questionIndex, setQuestionIndex] = useState(0);
     const [inputOptions, setInputOptions] = useState([]);
     const [nextQuestionIDs, setNextQuestionIDs] = useState([]);
-    const [nextQuestionID, setNextQuestionID] = useState("");
+    const [nextQuestionID, setNextQuestionID] = useState();
     const [questionNumber, setQuestionNumber] = useState(0);
     let navigate = useNavigate();
-
-    console.log(QuestionData.results.length-1)
 
     useEffect(() => {
         if(questionIndex === QuestionData.results.length-1){
             navigate('/finalpage');
         }else{
-            try{
-                var currentQuestion = QuestionData.results[questionIndex];
-                var nextQuestionOptions = [...currentQuestion.next_question_id];
+            if(nextQuestionID === ""){    //last question
+                navigate('/finalpage');
+            }else{
+                const currentQuestion = QuestionData.results[questionIndex];
+                const nextQuestionOptions = [...currentQuestion.next_question_id];
                 let answerOptions = [...currentQuestion.answers];
                 const questionNr = currentQuestion.question_number;
                 setInputOptions(answerOptions);
                 setNextQuestionIDs(nextQuestionOptions);
                 setQuestionNumber(questionNr);
-            }catch(error){
-                console.log(error);
             }
         }
     }, [questionIndex, nextQuestionID, navigate]);
@@ -37,22 +35,8 @@ const Question = () => {
         const selectedAnswer = e.target.textContent;
         const answerIndex = inputOptions.indexOf(selectedAnswer);
         const nextQuestionIdOfClick = nextQuestionIDs[answerIndex];
+        setQuestionIndex(nextQuestionIdOfClick-1);
         setNextQuestionID(nextQuestionIdOfClick);
-        
-        console.log(selectedAnswer)
-        console.log("indexOfSelectedAnswer: "+inputOptions.indexOf(selectedAnswer))
-        console.log("nextQuestionIdOfClick: "+nextQuestionIdOfClick);
-
-        console.log("typeof: "+typeof nextQuestionID);
-        console.log("nextQuestionID: "+nextQuestionID);
-    
-        // console.log("nextQuestionID.length: "+nextQuestionID.length);
-
-        if(nextQuestionID === 0){    //last question
-            navigate('/finalpage');
-        }else{
-            setQuestionIndex(nextQuestionIdOfClick-1)
-        }
     }
 
     return ( 
