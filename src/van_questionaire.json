@@ -58,7 +58,7 @@
         },
         {
             "id" : "5",
-            "question" : "Just go visit a small car questionaire - (Link) - Good luck!",
+            "question" : "Go and have a look at this small car questionaire - (Link) - Good luck!",
             "answers" : ["Ok"],
             "next_question_id" : [""]
         },
