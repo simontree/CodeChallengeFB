@@ -13,7 +13,7 @@ const LandingPage = () => {
     return ( 
         <div>
             <Box>
-                <Typography variant="h4" fontWeight="bold">Welcome to the Van Questionaire!<br/><br/> Find out which Van model suits you.</Typography>
+                <Typography variant="h4" fontWeight="bold">Welcome to the Van Questionaire!<br/><br/> Find out which van model suits you.</Typography>
                 <Box mt={10}>
                 <Button onClick={handleClick} variant="contained" type="submit" mt={10}>Getting Started</Button>
                 </Box>

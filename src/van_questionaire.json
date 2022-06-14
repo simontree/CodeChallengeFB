@@ -2,7 +2,6 @@
     "results" : [
         {
             "id" : "1",
-            "question_number" : "1",
             "question" : "What's your budget?",
             "answers" : [
                 "0-3000\u20ac",
@@ -17,7 +16,6 @@
         {
             "id" : "2",
             "question" : "How many seats do you want in your van?",
-            "question_number" : "2",
             "answers" : [
                 "2",
                 "3",
@@ -35,7 +33,6 @@
         {
             "id" : "3",
             "question" : "Is not a small car enough?",
-            "question_number" : "3",
             "answers" : [
                 "yes, you are right",
                 "no"
@@ -48,7 +45,6 @@
         {
             "id" : "4",
             "question" : "What brand should it be?",
-            "question_number" : "4",
             "answers" : [
                 "Ford",
                 "Renault",
@@ -62,14 +58,13 @@
         },
         {
             "id" : "5",
-            "question" : "Just go visit the small car questionaire. Good luck!",
-            "question_number" : "",
-            "answers" : ""
+            "question" : "Just go visit a small car questionaire - (Link) - Good luck!",
+            "answers" : ["Ok"],
+            "next_question_id" : [""]
         },
         {
             "id" : "6",
             "question" : "What model would you like?",
-            "question_number" : "5",
             "answers" : [
                 "Ford Transit 2002",
                 "Ford Transit 2020"
@@ -82,7 +77,6 @@
         {
             "id" : "7",
             "question" : "What model would you like?",
-            "question_number" : "6",
             "answers" : [
                 "Renault Traffic",
                 "Renault Master"
@@ -95,7 +89,6 @@
         {
             "id" : "8",
             "question" : "What model would you like?",
-            "question_number" : "7",
             "answers" : [
                 "VW T4",
                 "VW T5",

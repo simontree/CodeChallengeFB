@@ -10,7 +10,6 @@ const QuestionPage = ({setResultArray}) => {
     const [inputOptions, setInputOptions] = useState([]);
     const [nextQuestionIDs, setNextQuestionIDs] = useState([]);
     const [nextQuestionID, setNextQuestionID] = useState();
-    const [questionNumber, setQuestionNumber] = useState(0);
     const [finalArray, setFinalArray] = useState([]);
 
     let navigate = useNavigate();
@@ -20,12 +19,10 @@ const QuestionPage = ({setResultArray}) => {
             navigate('/finalpage');
         }else{
                 const currentQuestion = QuestionData.results[questionIndex];
-                const nextQuestionOptions = [...currentQuestion.next_question_id];
                 let answerOptions = [...currentQuestion.answers];
-                const questionNr = currentQuestion.question_number;
+                const nextQuestionOptions = [...currentQuestion.next_question_id];
                 setInputOptions(answerOptions);
                 setNextQuestionIDs(nextQuestionOptions);    
-                setQuestionNumber(questionNr); //question title
         }
         // to pass to finalPage via props
         setResultArray(finalArray); 
@@ -38,7 +35,7 @@ const QuestionPage = ({setResultArray}) => {
         const nextQuestionIdAfterClick = nextQuestionIDs[answerIndex];
         setQuestionIndex(nextQuestionIdAfterClick-1);
         setNextQuestionID(nextQuestionIdAfterClick);
-
+        console.log("nextQuestionID: "+nextQuestionID);
         //finalArray shows result on finalPage
         const currentQuestion = QuestionData.results[questionIndex].question;
         setFinalArray(prev => prev.concat(currentQuestion, selectedAnswer));
@@ -46,7 +43,6 @@ const QuestionPage = ({setResultArray}) => {
 
     return ( 
         <Box>
-            <Typography variant="h4">Question {questionNumber}</Typography>
             <Typography variant="h5" mt={5}>{
             (typeof QuestionData.results[questionIndex] !== 'undefined')?
             QuestionData.results[questionIndex].question
