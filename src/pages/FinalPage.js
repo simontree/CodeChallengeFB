@@ -13,7 +13,7 @@ const FinalPage = ({resultArray}) => {
     return ( 
         <Box>
             <Typography variant="h4" fontWeight="bold"> Your result: </Typography>
-            <div style={{ 'margin-top' : '30px', 'fontWeight' : 'bold', 'fontSize' : '20px'}}>Your Questions and answers<br/>
+            <div style={{ 'marginTop' : '30px', 'fontWeight' : 'bold', 'fontSize' : '20px'}}>Your Questions and answers<br/>
             {resultArray.map((data, question) =>(
                 <Box key={question} mt={3}>
                     {data}
