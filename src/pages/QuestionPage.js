@@ -78,7 +78,7 @@ const QuestionPage = ({setResultArray}) => {
                         type="text"
                         sx={{ width: '150px' }}> 
                         </TextField> <br/>
-                        <Button onClick={onClickSubmitText} >Submit</Button>
+                        <Button onClick={onClickSubmitText}>Submit</Button>
                 </Box>
                 : console.log("can't read data type of input option")
             ))}
