@@ -25,7 +25,6 @@ const QuestionPage = ({setResultArray}) => {
                 let answerOptions = [...currentQuestionData.answers];
                 const nextQuestionOptions = [...currentQuestionData.next_question_id];
                 const inputTypes = [...currentQuestionData.input_types];
-                console.log("inputTypes: "+inputTypes[0]);
                 setInputOptions(answerOptions);
                 setNextQuestionIDs(nextQuestionOptions);    
                 setInputDataTypes(inputTypes);
@@ -35,7 +34,7 @@ const QuestionPage = ({setResultArray}) => {
     }
     , [questionIndex, nextQuestionID, navigate, finalArray, setResultArray]);
 
-    const handleClick = (e) => {
+    const onClickButton = (e) => {
         const selectedAnswer = e.target.textContent;
         const answerIndex = inputOptions.indexOf(selectedAnswer); // get answerIndex to match to nextQuestionIdAfterClick and load next page
         const nextQuestionIdAfterClick = nextQuestionIDs[answerIndex];
@@ -51,13 +50,12 @@ const QuestionPage = ({setResultArray}) => {
     }
 
     const onClickSubmitText = () => {
-        const answerIndex = inputOptions.indexOf(textInput); // get answerIndex to match to nextQuestionIdAfterClick and load next page
+        const answerIndex = inputOptions.indexOf(inputOptions.find(item => item === "")); // get answerIndex to match to nextQuestionIdAfterClick and load next page
         const nextQuestionIdAfterClick = nextQuestionIDs[answerIndex];
         setQuestionIndex(nextQuestionIdAfterClick-1);
         setNextQuestionID(nextQuestionIdAfterClick);
         setCurrentQuestion(QuestionData.results[questionIndex].question);
         setFinalArray(prev => prev.concat(currentQuestion, textInput)); //finalArray shows result on finalPage via props
-        console.log("finalArray"+finalArray);
     }
 
     return ( 
@@ -70,17 +68,17 @@ const QuestionPage = ({setResultArray}) => {
             {inputOptions.map((data, id) =>(
                 (inputDataTypes[id] === "button") ?
                 <Box key={id} mt={2}>
-                    <Button onClick={handleClick} variant="contained">{data}</Button>
+                    <Button onClick={onClickButton} variant="contained">{data}</Button>
                 </Box> : (inputDataTypes[id] === "text") ?
-                <Box key={id} mt={2}>
+                <Box key={id} mt={1}>
                         <TextField 
                         onChange={handleTextChange} 
                         variant="standard" 
-                        label="Type other option here" 
+                        label="Other option" 
                         type="text"
-                        size="small"> 
+                        sx={{ width: '150px' }}> 
                         </TextField> <br/>
-                        <Button onClick={onClickSubmitText}>Submit text</Button>
+                        <Button onClick={onClickSubmitText} >Submit</Button>
                 </Box>
                 : console.log("can't read data type of input option")
             ))}
