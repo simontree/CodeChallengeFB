@@ -2,7 +2,19 @@ import { Box } from "@mui/system";
 import { Typography, Button } from "@mui/material";
 import { useNavigate } from "react-router";
 
+import { useQuery, gql } from '@apollo/client';
+
 const FinalPage = ({resultArray}) => {
+
+    const FEED_QUERY = gql`
+      {
+      feed {
+        id
+        question
+        answer
+      }
+    }
+    `;
 
     let navigate = useNavigate();
 
