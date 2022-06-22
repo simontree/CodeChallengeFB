@@ -1,25 +1,12 @@
 type Query {
     info: String!
-    feed: [Link!]!
+    feed: [Inputdata!]!
 }
 type Mutation {
-  post(url: String!, description: String!): Link!
+  post(question: String!, answer: String!): Inputdata!
 }
-type Link {
+type Inputdata {
   id: ID!
-  description: String!
-  url: String!
+  question: String!
+  answer: String!
 }
-
-# type Query {
-#   # Fetch a single link by its `id`
-#   link(id: ID!): Link
-# }
-
-# type Mutation {
-#   # Update a link
-#   updateLink(id: ID!, url: String, description: String): Link
-
-#   # Delete a link
-#   deleteLink(id: ID!): Link
-# }
