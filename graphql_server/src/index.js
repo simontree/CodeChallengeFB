@@ -1,13 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 const { ApolloServer } = require('apollo-server');
-const { PrismaClient } = require('@prisma/client')
-  
+const { PrismaClient } = require('@prisma/client');
+
 const resolvers = {
   Query: {
     info: () => `This is the API of the Questionaire app`,
-    feed: async (parent, args, context) =>{
-        return context.prisma.link.findMany()
+    feed: async (parent, args, context) => {
+      return context.prisma.link.findMany();
     }
   },
   Mutation: {
