@@ -13,16 +13,16 @@ function App() {
   const [resultArray, setResultArray] = useState([]);
 
   return (
-    <LinkList/>
-    // <BrowserRouter>
-    // <Box textAlign="center" mt={10}>
-    //   <Routes>
-    //     <Route path="/" element={<LandingPage/>}/>
-    //     <Route path="/question" element={<QuestionPage setResultArray={setResultArray}/>}/>
-    //     <Route path="/finalpage" element={<FinalPage resultArray={resultArray}/>}/>
-    //   </Routes>
-    // </Box>
-    // </BrowserRouter>
+    // <LinkList/>
+    <BrowserRouter>
+    <Box textAlign="center" mt={10}>
+      <Routes>
+        <Route path="/" element={<LandingPage/>}/>
+        <Route path="/question" element={<QuestionPage setResultArray={setResultArray}/>}/>
+        <Route path="/finalpage" element={<FinalPage resultArray={resultArray}/>}/>
+      </Routes>
+    </Box>
+    </BrowserRouter>
   );
 }
 

@@ -5,9 +5,9 @@ import { useQuery, gql } from '@apollo/client';
 const FEED_QUERY = gql`
   {
   feed {
-      id
-      description
-      url
+    id
+    question
+    answer
   }
 }
 `;

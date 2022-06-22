@@ -7,18 +7,18 @@ const resolvers = {
   Query: {
     info: () => `This is the API of the Questionaire app`,
     feed: async (parent, args, context) => {
-      return context.prisma.link.findMany();
+      return context.prisma.inputdata.findMany();
     }
   },
   Mutation: {
     post: (parent, args, context, info) => {
-    let newLink = context.prisma.link.create({
+    let newInputData = context.prisma.inputdata.create({
         data: {
-            url: args.url,
-            description: args.description,
+            question: args.question,
+            answer: args.answer,
         },
     })
-    return newLink
+    return newInputData
     }
   }
 }
