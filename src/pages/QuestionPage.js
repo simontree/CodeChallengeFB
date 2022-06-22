@@ -4,7 +4,18 @@ import QuestionData from '../van_questionaire.json';
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 
+import { useMutation, gql } from '@apollo/client';
+
 const QuestionPage = ({setResultArray}) => {
+
+    //graphql
+    const ADD_INPUT_DATA = gql`
+        mutation Post($question: String!, $answer: String!){
+            post(question: $question, answer: $answer){
+                id
+        }
+    }`;
+    const [addInputData, { data, loading, error }] = useMutation(ADD_INPUT_DATA);
 
     const [questionIndex, setQuestionIndex] = useState(0);
     const [inputOptions, setInputOptions] = useState([]);
@@ -38,10 +49,17 @@ const QuestionPage = ({setResultArray}) => {
         const selectedAnswer = e.target.textContent;
         const answerIndex = inputOptions.indexOf(selectedAnswer); // get answerIndex to match to nextQuestionIdAfterClick and load next page
         const nextQuestionIdAfterClick = nextQuestionIDs[answerIndex];
+        const thisCurrentQuestion = QuestionData.results[questionIndex].question;
         setQuestionIndex(nextQuestionIdAfterClick-1);
         setNextQuestionID(nextQuestionIdAfterClick);
-        setCurrentQuestion(QuestionData.results[questionIndex].question); 
-        setFinalArray(prev => prev.concat(currentQuestion, selectedAnswer));  //finalArray shows result on finalPage via props
+        setCurrentQuestion(thisCurrentQuestion); 
+        setFinalArray(prev => prev.concat(thisCurrentQuestion, selectedAnswer));  //finalArray shows result on finalPage via props
+        
+        console.log("currentQuestion: "+thisCurrentQuestion)
+        console.log("selectedAnswer: "+selectedAnswer)
+        console.log(finalArray);
+
+        addInputData({variables: {question: thisCurrentQuestion, answer: selectedAnswer}});
     }
 
     const handleTextChange = (e) => {
