@@ -1,4 +1,6 @@
 {
+    "title" : "Welcome to the Van Questionaire!",
+    "subtitle" : "Find out which van model suits you.",
     "results" : [
         {
             "id" : "1",

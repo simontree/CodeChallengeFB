@@ -1,6 +1,7 @@
 import { Typography, Button } from "@mui/material";
 import { Box } from "@mui/system";
 import { useNavigate } from "react-router";
+import QuestionData from '../van_questionaire.json';
 
 const LandingPage = () => {
     
@@ -13,7 +14,7 @@ const LandingPage = () => {
     return ( 
         <div>
             <Box>
-                <Typography variant="h4" fontWeight="bold">Welcome to the Van Questionaire!<br/><br/> Find out which van model suits you.</Typography>
+                <Typography variant="h4" fontWeight="bold">{QuestionData.title}<br/><br/> {QuestionData.subtitle}</Typography>
                 <Box mt={10}>
                 <Button onClick={handleClick} variant="contained" type="submit" mt={10}>Getting Started</Button>
                 </Box>
