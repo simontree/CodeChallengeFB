@@ -38,10 +38,11 @@ const QuestionPage = ({setResultArray}) => {
         const selectedAnswer = e.target.textContent;
         const answerIndex = inputOptions.indexOf(selectedAnswer); // get answerIndex to match to nextQuestionIdAfterClick and load next page
         const nextQuestionIdAfterClick = nextQuestionIDs[answerIndex];
+        const thisCurrentQuestion = QuestionData.results[questionIndex].question;
         setQuestionIndex(nextQuestionIdAfterClick-1);
         setNextQuestionID(nextQuestionIdAfterClick);
-        setCurrentQuestion(QuestionData.results[questionIndex].question); 
-        setFinalArray(prev => prev.concat(currentQuestion, selectedAnswer));  //finalArray shows result on finalPage via props
+        setCurrentQuestion(thisCurrentQuestion); 
+        setFinalArray(prev => prev.concat(thisCurrentQuestion, selectedAnswer));  //finalArray shows result on finalPage via props
     }
 
     const handleTextChange = (e) => {
