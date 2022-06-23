@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from "react";
-import './App.css';
 import { Box } from '@mui/system';
 import LandingPage from './pages/LandingPage';
 import QuestionPage from './pages/QuestionPage';
