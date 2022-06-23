@@ -1,8 +1,8 @@
-# Getting Started with Questionaire App 
+## Getting Started with the Questionaire App 
 
 Based on a json file that is stored within /src this questionaire can be updated to your choosing. 
 
-## Setup
+### Setup
 
 1. clone repository to your local folder of choice
 2. install necessary project dependencies with "npm i"
