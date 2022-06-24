@@ -7,6 +7,7 @@ import { useNavigate } from "react-router";
 const QuestionPage = ({setResultArray}) => {
 
     const [questionIndex, setQuestionIndex] = useState(0);
+    const [questionIndexHistory, setQuestionIndexHistory] = useState([]);   //for previous button
     const [inputOptions, setInputOptions] = useState([]);
     const [inputDataTypes, setInputDataTypes] = useState([]);   // to set as button, text etc.
     const [nextQuestionIDs, setNextQuestionIDs] = useState([]);
@@ -28,13 +29,15 @@ const QuestionPage = ({setResultArray}) => {
                 setInputOptions(answerOptions);
                 setNextQuestionIDs(nextQuestionOptions);    
                 setInputDataTypes(inputTypes);
+                // console.log("currentQuestionData.id: "+currentQuestionData.id)
         }
         // to pass to finalPage via props
         setResultArray(finalArray); 
+        console.log(finalArray)
     }
     , [questionIndex, nextQuestionID, navigate, finalArray, setResultArray]);
 
-    const onClickButton = (e) => {
+    const onClickSubmitButton = (e) => {
         const selectedAnswer = e.target.textContent;
         const answerIndex = inputOptions.indexOf(selectedAnswer); // get answerIndex to match to nextQuestionIdAfterClick and load next page
         const nextQuestionIdAfterClick = nextQuestionIDs[answerIndex];
@@ -43,6 +46,17 @@ const QuestionPage = ({setResultArray}) => {
         setNextQuestionID(nextQuestionIdAfterClick);
         setCurrentQuestion(thisCurrentQuestion); 
         setFinalArray(prev => prev.concat(thisCurrentQuestion, selectedAnswer));  //finalArray shows result on finalPage via props
+        setQuestionIndexHistory(prev => prev.concat(questionIndex));
+    }
+
+    const onClickBackButton = () => {
+        setQuestionIndex(questionIndexHistory[questionIndexHistory.length-1]); // setQuestionIndex with last element of questionIndexHistory Array
+        setQuestionIndexHistory(questionIndexHistory.slice(0,-1)) // delete last element of questionIndexHistory Array
+        setFinalArray(finalArray.slice(0,-2)); // delete last two elements of finalArray
+    }
+
+    const onClickBackToHomeButton = () => {
+        navigate(-1);
     }
 
     const handleTextChange = (e) => {
@@ -69,8 +83,9 @@ const QuestionPage = ({setResultArray}) => {
             {inputOptions.map((data, id) =>(
                 (inputDataTypes[id] === "button") ?
                 <Box key={id} mt={2}>
-                    <Button onClick={onClickButton} variant="contained">{data}</Button>
-                </Box> : (inputDataTypes[id] === "text") ?
+                    <Button onClick={onClickSubmitButton} variant="contained">{data}</Button>
+                </Box> 
+                : (inputDataTypes[id] === "text") ?
                 <Box key={id} mt={1}>
                         <TextField 
                         onChange={handleTextChange} 
@@ -83,6 +98,17 @@ const QuestionPage = ({setResultArray}) => {
                 </Box>
                 : console.log("can't read data type of input option")
             ))}
+             
+            {questionIndex > 0 ?
+            <Box mt={3}>
+                <Button onClick={onClickBackButton} variant="outlined">Previous Question</Button>
+            </Box>
+            : questionIndex === 0 ?
+            <Box mt={3}>
+                <Button onClick={onClickBackToHomeButton} variant="outlined">Back</Button>
+            </Box>
+            : console.log("check for error with questionIndex")
+            }
         </Box>
      );
 }
