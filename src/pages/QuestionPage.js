@@ -29,7 +29,6 @@ const QuestionPage = ({setResultArray}) => {
                 setInputOptions(answerOptions);
                 setNextQuestionIDs(nextQuestionOptions);    
                 setInputDataTypes(inputTypes);
-                // console.log("currentQuestionData.id: "+currentQuestionData.id)
         }
         // to pass to finalPage via props
         setResultArray(finalArray); 

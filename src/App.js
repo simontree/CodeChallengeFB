@@ -5,7 +5,6 @@ import LandingPage from './pages/LandingPage';
 import QuestionPage from './pages/QuestionPage';
 import FinalPage from './pages/FinalPage';
 
-
 function App() {
 
   const [resultArray, setResultArray] = useState([]);
